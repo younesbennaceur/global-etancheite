@@ -193,7 +193,7 @@ const Navbar = () => {
                         {servicesList.map((service) => (
                           <Link
                             key={service.id}
-                            to={`/services/${service.slug}`}
+                            to={`/service/${service.slug}`}
                             onClick={() => setIsOpen(false)}
                             className="block pl-8 pr-4 py-3 text-sm text-gray-600 hover:text-[#0EA5E9] hover:bg-slate-100 border-l-2 border-transparent hover:border-[#0EA5E9] transition-all"
                           >
