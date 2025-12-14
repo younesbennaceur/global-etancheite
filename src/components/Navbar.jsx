@@ -98,7 +98,7 @@ const Navbar = () => {
                     {servicesList.map((service) => (
                       <Link 
                         key={service.id} 
-                        to={`/services/${service.slug}`}
+                        to={`/service/${service.slug}`}
                         className="group flex items-start gap-4 p-3 hover:bg-slate-50 rounded-md transition-colors duration-200"
                         onClick={() => setIsServicesOpen(false)}
                       >
