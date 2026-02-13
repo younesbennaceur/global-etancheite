@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom'; // Ajout de hooks
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, ChevronDown, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -11,8 +11,7 @@ const servicesList = [
   { id: 5, ref: "FUITE-05", title: "Recherche de Fuite", slug: "recherche-fuite", description: "Diagnostic précis non destructif." },
   { id: 6, ref: "CTRL-06", title: "Contrat d'Entretien", slug: "contrat-entretien", description: "Maintenance et nettoyage régulier." },
   { id: 7, ref: "BAL-07", title: "Balcons & Loggias", slug: "balcons-loggias", description: "Systèmes d'Étanchéité Liquide (SEL)." },
-  { id: 8, ref: "FAC-08", title: "Bardage & Façade", slug: "bardage-facade", description: "Isolation et protection extérieure." },
-  { id: 9, ref: "PKG-09", title: "Parking & Cuvelage", slug: "parking-cuvelage", description: "Traitement des sous-sols et parkings." }
+  { id: 8, ref: "DALL-08", title: "Dalles sur Plots", slug: "dalles-sur-plots-retirees", description: "Dépose et réfection d'étanchéité." }
 ];
 
 const Navbar = () => {
@@ -21,37 +20,16 @@ const Navbar = () => {
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
 
   const location = useLocation();
-  const navigate = useNavigate();
 
-  // Fonction pour gérer le scroll vers une section
-  const handleScrollTo = (sectionId) => {
-    // Fermer le menu mobile si ouvert
+  // Fonction pour fermer les menus après un clic
+  const closeMenus = () => {
     setIsOpen(false);
     setIsServicesOpen(false);
-
-    if (location.pathname === '/') {
-      // Si on est déjà sur l'accueil, on scroll
-      const element = document.getElementById(sectionId);
-      if (element) {
-        // Offset pour compenser la hauteur de la navbar (96px = h-24)
-        const yOffset = -100; 
-        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({top: y, behavior: 'smooth'});
-      }
-    } else {
-      // Sinon, on va à l'accueil d'abord
-      navigate('/');
-      // On attend un peu que la page charge avant de scroller
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const yOffset = -100;
-          const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-          window.scrollTo({top: y, behavior: 'smooth'});
-        }
-      }, 100);
-    }
+    setIsMobileServicesOpen(false);
   };
+
+  // Helper pour savoir si un lien est actif (pour le style bleu)
+  const isActive = (path) => location.pathname === path;
 
   return (
     <header className="fixed w-full top-0 z-[100] bg-white font-sans shadow-sm">
@@ -61,16 +39,20 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-24">
           
           {/* LOGO */}
-          <div onClick={() => handleScrollTo('home')} className="flex-shrink-0 flex items-center gap-2 cursor-pointer z-[101]">
-             <img src="/logo.svg" alt="" />
-          </div>
+          <Link to="/" onClick={closeMenus} className="flex-shrink-0 flex items-center gap-2 cursor-pointer z-[101]">
+              <img src="/logo.svg" alt="Global Étanchéité" />
+          </Link>
 
           {/* --- DESKTOP NAVIGATION --- */}
           <nav className="hidden md:flex space-x-8 items-center h-full relative">
             
-            <button onClick={() => handleScrollTo('home')} className="text-gray-600 hover:text-[#0EA5E9] font-medium transition-colors text-sm uppercase tracking-wide bg-transparent border-none cursor-pointer">
+            <Link 
+              to="/" 
+              onClick={closeMenus}
+              className={`font-medium transition-colors text-sm uppercase tracking-wide ${isActive('/') ? 'text-[#0EA5E9]' : 'text-gray-600 hover:text-[#0EA5E9]'}`}
+            >
               Accueil
-            </button>
+            </Link>
 
             {/* Menu Déroulant "SERVICES" */}
             <div 
@@ -78,13 +60,14 @@ const Navbar = () => {
               onMouseEnter={() => setIsServicesOpen(true)}
               onMouseLeave={() => setIsServicesOpen(false)}
             >
-              <button 
-                onClick={() => handleScrollTo('services')}
-                className={`flex items-center gap-1 font-medium transition-colors text-sm uppercase tracking-wide bg-transparent border-none cursor-pointer ${isServicesOpen ? 'text-[#0EA5E9]' : 'text-gray-600 hover:text-[#0EA5E9]'}`}
+              <Link 
+                to="/services"
+                className={`flex items-center gap-1 font-medium transition-colors text-sm uppercase tracking-wide ${isActive('/services') ? 'text-[#0EA5E9]' : 'text-gray-600 hover:text-[#0EA5E9]'}`}
+                onClick={() => setIsServicesOpen(false)}
               >
                 Services
                 <ChevronDown size={16} className={`transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
-              </button>
+              </Link>
 
               <AnimatePresence>
                 {isServicesOpen && (
@@ -100,7 +83,7 @@ const Navbar = () => {
                         key={service.id} 
                         to={`/service/${service.slug}`}
                         className="group flex items-start gap-4 p-3 hover:bg-slate-50 rounded-md transition-colors duration-200"
-                        onClick={() => setIsServicesOpen(false)}
+                        onClick={closeMenus}
                       >
                         <div className="mt-1 w-10 h-10 flex-shrink-0 bg-[#0F172A] text-white text-[10px] font-bold flex items-center justify-center rounded-sm group-hover:bg-[#0EA5E9] transition-colors">
                            {service.ref.split('-')[0]}
@@ -117,36 +100,46 @@ const Navbar = () => {
                       </Link>
                     ))}
                     <div className="col-span-2 border-t border-gray-100 pt-4 mt-2 text-center">
-                        <button onClick={() => handleScrollTo('services')} className="text-xs font-bold uppercase text-[#0EA5E9] hover:underline tracking-widest flex items-center justify-center gap-2 w-full">
+                        <Link to="/services" onClick={closeMenus} className="text-xs font-bold uppercase text-[#0EA5E9] hover:underline tracking-widest flex items-center justify-center gap-2 w-full">
                             Voir tous nos services <ArrowRight size={12}/>
-                        </button>
+                        </Link>
                     </div>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            <button onClick={() => handleScrollTo('realizations')} className="text-gray-600 hover:text-[#0EA5E9] font-medium transition-colors text-sm uppercase tracking-wide bg-transparent border-none cursor-pointer">
+            <Link 
+              to="/realisations" 
+              onClick={closeMenus}
+              className={`font-medium transition-colors text-sm uppercase tracking-wide ${isActive('/realisations') ? 'text-[#0EA5E9]' : 'text-gray-600 hover:text-[#0EA5E9]'}`}
+            >
               Réalisations
-            </button>
+            </Link>
             
-            <button onClick={() => handleScrollTo('contact')} className="text-gray-600 hover:text-[#0EA5E9] font-medium transition-colors text-sm uppercase tracking-wide bg-transparent border-none cursor-pointer">
+            <Link 
+              to="/devis" 
+              onClick={closeMenus}
+              className={`font-medium transition-colors text-sm uppercase tracking-wide ${isActive('/devis') ? 'text-[#0EA5E9]' : 'text-gray-600 hover:text-[#0EA5E9]'}`}
+            >
               Contact
-            </button>
+            </Link>
           </nav>
 
           {/* --- CTA (Desktop) --- */}
           <div className="hidden md:flex items-center space-x-6 z-[101]">
-            <div className="flex items-center gap-2 text-[#1E293B] font-bold group cursor-pointer">
+            <a href="tel:0123456789" className="flex items-center gap-2 text-[#1E293B] font-bold group cursor-pointer">
               <div className="p-2 bg-slate-100 rounded-full group-hover:bg-blue-50 transition-colors">
                  <Phone size={18} className="text-[#0EA5E9]" />
               </div>
               <span className="group-hover:text-[#0EA5E9] transition-colors">01 23 45 67 89</span>
-            </div>
-            {/* Le bouton Devis reste un Link vers la page Devis ou vers CTA ? J'ai mis CTA ici */}
-            <button onClick={() => handleScrollTo('cta')} className="bg-[#0EA5E9] hover:bg-[#0284c7] text-white px-6 py-3 rounded-sm font-bold shadow-lg shadow-blue-500/30 transition-all uppercase text-xs tracking-widest">
+            </a>
+            
+            <Link to="/devis" onClick={closeMenus}>
+              <button className="bg-[#0EA5E9] hover:bg-[#0284c7] text-white px-6 py-3 rounded-sm font-bold shadow-lg shadow-blue-500/30 transition-all uppercase text-xs tracking-widest">
                 Demander un devis
-            </button>
+              </button>
+            </Link>
           </div>
 
           {/* --- MOBILE MENU BUTTON --- */}
@@ -169,9 +162,9 @@ const Navbar = () => {
           >
             <div className="px-4 pt-2 pb-6 space-y-1">
               
-              <button onClick={() => handleScrollTo('home')} className="block w-full text-left px-3 py-4 text-base font-bold text-[#0F172A] border-b border-gray-50">
+              <Link to="/" onClick={closeMenus} className="block w-full text-left px-3 py-4 text-base font-bold text-[#0F172A] border-b border-gray-50">
                 ACCUEIL
-              </button>
+              </Link>
 
               <div className="border-b border-gray-50">
                 <button 
@@ -194,38 +187,39 @@ const Navbar = () => {
                           <Link
                             key={service.id}
                             to={`/service/${service.slug}`}
-                            onClick={() => setIsOpen(false)}
+                            onClick={closeMenus}
                             className="block pl-8 pr-4 py-3 text-sm text-gray-600 hover:text-[#0EA5E9] hover:bg-slate-100 border-l-2 border-transparent hover:border-[#0EA5E9] transition-all"
                           >
                             {service.title}
                           </Link>
                         ))}
-                         {/* Lien vers la section services générale sur mobile */}
-                         <button onClick={() => handleScrollTo('services')} className="block w-full text-left pl-8 pr-4 py-3 text-sm font-bold text-[#0EA5E9] hover:bg-slate-100">
-                            VOIR TOUS LES SERVICES
-                         </button>
+                         <Link to="/services" onClick={closeMenus} className="block w-full text-left pl-8 pr-4 py-3 text-sm font-bold text-[#0EA5E9] hover:bg-slate-100">
+                           VOIR TOUS LES SERVICES
+                         </Link>
                       </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
 
-              <button onClick={() => handleScrollTo('realizations')} className="block w-full text-left px-3 py-4 text-base font-bold text-[#0F172A] border-b border-gray-50">
+              <Link to="/realisations" onClick={closeMenus} className="block w-full text-left px-3 py-4 text-base font-bold text-[#0F172A] border-b border-gray-50">
                 RÉALISATIONS
-              </button>
+              </Link>
               
-              <button onClick={() => handleScrollTo('contact')} className="block w-full text-left px-3 py-4 text-base font-bold text-[#0F172A] border-b border-gray-50">
+              <Link to="/contact" onClick={closeMenus} className="block w-full text-left px-3 py-4 text-base font-bold text-[#0F172A] border-b border-gray-50">
                 CONTACT
-              </button>
+              </Link>
 
               <div className="pt-6 px-3">
                 <p className="text-center font-bold text-[#0F172A] mb-4 flex justify-center items-center gap-2">
                     <Phone size={18} className="text-[#0EA5E9]" />
                     01 23 45 67 89
                 </p>
-                <button onClick={() => handleScrollTo('cta')} className="w-full bg-[#0F172A] text-white py-4 rounded-sm font-bold uppercase tracking-widest text-sm border-b-4 border-[#0EA5E9]">
-                  Demander un devis
-                </button>
+                <Link to="/devis" onClick={closeMenus}>
+                  <button className="w-full bg-[#0F172A] text-white py-4 rounded-sm font-bold uppercase tracking-widest text-sm border-b-4 border-[#0EA5E9]">
+                    Demander un devis
+                  </button>
+                </Link>
               </div>
             </div>
           </motion.div>

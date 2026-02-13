@@ -11,7 +11,7 @@ const servicesList = [
     title: "Toit Terrasse",
     slug: "toit-terrasse",
     description: "Rénovation complète d'étanchéité pour toits plats accessibles et non accessibles. Isolation thermique performante incluse selon normes DTU.",
-    image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=2069&auto=format&fit=crop"
+    image: "./ToitTerrasse.jpeg"
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const servicesList = [
     title: "Étanchéité Neuf",
     slug: "etancheite-neuf",
     description: "Solutions d'imperméabilisation pour constructions neuves. Protection durable des fondations, des structures béton et des ouvrages d'art.",
-    image: "https://images.unsplash.com/photo-1590082725907-70e173e6344d?q=80&w=2070&auto=format&fit=crop"
+    image: "./Étanchéité_Neuf.jpeg"
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const servicesList = [
     title: "Sols en Résine",
     slug: "sols-resine",
     description: "Revêtements de sol en résine époxy ou polyuréthane. Esthétique, résistant et facile d'entretien pour garages, industries et intérieurs.",
-    image: "https://images.unsplash.com/photo-1632759868194-6d9b04f3780d?q=80&w=2070&auto=format&fit=crop"
+    image: "./Resine.jpeg"
   },
   {
     id: 4,
@@ -35,7 +35,7 @@ const servicesList = [
     title: "Toitures Végétalisées",
     slug: "toitures-vegetalisees",
     description: "Installation de systèmes d'étanchéité anti-racine pour toitures vertes. Alliez écologie, esthétique et isolation thermique naturelle.",
-    image: "/Amenagement-de-terre-toiture-vegetalee.png"
+    image: "/Végétalisées.jpeg"
   },
   {
     id: 5,
@@ -43,7 +43,7 @@ const servicesList = [
     title: "Recherche de Fuite",
     slug: "recherche-fuite",
     description: "Diagnostic précis par fumigène, gaz traceur ou mise en eau colorée pour localiser et réparer vos infiltrations rapidement sans destruction.",
-    image: "/Recherche-de-fuite.png"
+    image: "/ty.jpeg"
   },
   {
     id: 6,
@@ -51,7 +51,7 @@ const servicesList = [
     title: "Contrat d'Entretien",
     slug: "contrat-entretien",
     description: "Maintenance régulière de vos toitures : nettoyage, vérification des évacuations pluviales et reprise des points singuliers pour éviter les sinistres.",
-    image: "/Contrat-dentretien.png"
+    image: "/Entretien.jpeg"
   },
   {
     id: 7,
@@ -59,24 +59,16 @@ const servicesList = [
     title: "Balcons & Loggias",
     slug: "balcons-loggias",
     description: "Systèmes d'Étanchéité Liquide (SEL) spécialement conçus pour les petites surfaces extérieures, balcons et coursives piétonnes.",
-    image: "https://images.unsplash.com/photo-1621251347676-e10eb5375c32?q=80&w=2070&auto=format&fit=crop"
+    image: "./Balcon.jpeg"
   },
-  {
+ {
     id: 8,
-    ref: "FAC-08",
-    title: "Bardage & Façade",
-    slug: "bardage-facade",
-    description: "Protection et imperméabilisation des murs extérieurs. Pose de bardage isolant pour une rénovation énergétique et esthétique de votre bâtiment.",
-    image: "https://images.unsplash.com/photo-1520697830682-bbb6e85e2b0b?q=80&w=2070&auto=format&fit=crop"
-  },
-  {
-    id: 9,
-    ref: "PKG-09",
-    title: "Parking & Cuvelage",
-    slug: "parking-cuvelage",
-    description: "Étanchéité des parkings souterrains et cuvelage des sous-sols contre les remontées capillaires et la pression hydrostatique.",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
-  }
+    ref: "DALL-08",
+    title: "Dalles sur plots retirées",
+    slug: "dalles-sur-plots-retirees",
+    description: "Dépose soigneuse et retrait de dalles sur plots pour inspection du support, nettoyage ou réfection de l'étanchéité, garantissant une intervention propre et organisée.",
+    image: "./ty.jpeg"
+ }
 ];
 
 // Animation Variants

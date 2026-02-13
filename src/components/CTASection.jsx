@@ -1,5 +1,6 @@
 import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function CTASection() {
   const points = [
@@ -82,9 +83,12 @@ export default function CTASection() {
 
             {/* Bouton */}
             <div>
-              <button className="bg-[#0F172A] text-white text-sm font-bold uppercase tracking-widest px-8 py-4 border-b-[5px] border-[#0EA5E9] hover:bg-slate-800 transition-colors">
-                Demander un devis
-              </button>
+              
+              <Link to="/devis">
+                <button className="ml-4 bg-[#0EA5E9] text-white text-sm font-bold uppercase tracking-widest px-8 py-4 border-b-[5px] border-[#0F172A] hover:bg-blue-500 transition-colors">
+                  Demander un devis
+                </button>
+              </Link>
             </div>
 
           </div>

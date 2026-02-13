@@ -5,6 +5,9 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ServiceDetails from './pages/ServiceDetails';
 import FloatingContact from './components/FloatButton';
+import DevisPage from './pages/Devis';  
+import RealizationsPage from './pages/RealisationPage';
+import ServicesPage from './pages/ServicesPage';
 
 
 
@@ -33,6 +36,10 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path="/service/:slug" element={<ServiceDetails />} />
+        <Route path="/devis" element={<DevisPage />} />
+        <Route path="/realisations" element={<RealizationsPage />} />
+        <Route path="/services" element={<ServicesPage />} />
+
         
         
 

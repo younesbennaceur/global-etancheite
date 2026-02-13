@@ -14,7 +14,7 @@ const servicesData = {
     title: "Toit Terrasse",
     subtitle: "Rénovation & Isolation Thermique",
     description: "Les toits-terrasses sont les zones les plus exposées aux intempéries. Notre expertise en bitume élastomère assure une étanchéité parfaite de votre bâtiment tout en améliorant son isolation thermique, conformément aux normes DTU 43.1.",
-    image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=2069",
+   image: "../public/ToitTerrasse.jpeg",
     icon: Home,
     benefits: [
       { title: "Garantie Décennale", text: "Travaux couverts sur 10 ans." },
@@ -43,7 +43,7 @@ const servicesData = {
     title: "Étanchéité Neuf",
     subtitle: "Protection des Ouvrages & Fondations",
     description: "Pour les constructions neuves, l'étanchéité est cruciale dès le départ. Nous protégeons les fondations, les radiers et les toitures contre l'humidité ascensionnelle et les infiltrations, garantissant la longévité de la structure.",
-    image: "https://images.unsplash.com/photo-1590082725907-70e173e6344d?q=80&w=2070",
+    image: "../public/Étanchéité_Neuf.jpeg",
     icon: Layers,
     benefits: [
       { title: "Pérennité", text: "Protection durable du béton." },
@@ -72,7 +72,7 @@ const servicesData = {
     title: "Sols en Résine",
     subtitle: "Systèmes d'Étanchéité Liquide (SEL)",
     description: "Idéal pour les garages, les locaux techniques ou les intérieurs modernes. La résine forme une surface continue, sans joint, facile à nettoyer et extrêmement résistante aux chocs et aux produits chimiques.",
-    image: "https://images.unsplash.com/photo-1632759868194-6d9b04f3780d?q=80&w=2070",
+    image: "../public/Resine.jpeg",
     icon: Droplets,
     benefits: [
       { title: "Esthétique", text: "Large choix de couleurs et finitions." },
@@ -101,7 +101,7 @@ const servicesData = {
     title: "Toitures Végétalisées",
     subtitle: "Écologie & Isolation Naturelle",
     description: "Transformez votre toit en jardin. Nous installons le complexe d'étanchéité anti-racine spécifique et le système de drainage nécessaire pour accueillir la végétation (sedum ou intensive).",
-    image: "https://images.unsplash.com/photo-1596238640393-2715568f188e?q=80&w=2070",
+    image: "../public/Végétalisées.jpeg",
     icon: Sprout,
     benefits: [
       { title: "Isolation", text: "Meilleure inertie thermique été/hiver." },
@@ -130,7 +130,7 @@ const servicesData = {
     title: "Recherche de Fuite",
     subtitle: "Diagnostic Expert Non Destructif",
     description: "Une infiltration ne doit pas attendre. Nous utilisons des technologies de pointe (fumigène, gaz traceur, fluorescéine, humidimètre) pour localiser l'origine exacte de la fuite sans casser votre toiture.",
-    image: "https://images.unsplash.com/photo-1584622050111-993a426fbf0a?q=80&w=2070",
+    image: "../public/ty.jpeg",
     icon: Search,
     benefits: [
       { title: "Intervention 48h", text: "Urgence traitée en priorité." },
@@ -159,7 +159,7 @@ const servicesData = {
     title: "Contrat d'Entretien",
     subtitle: "Maintenance & Prévention",
     description: "La longévité de votre toiture dépend de son entretien. Notre contrat annuel inclut le nettoyage des évacuations, l'enlèvement des mousses et la vérification des relevés pour éviter tout sinistre.",
-    image: "https://images.unsplash.com/photo-1581094794329-cd8119608f84?q=80&w=2070",
+    image: "../public/Entretien.jpeg",
     icon: ClipboardCheck,
     benefits: [
       { title: "Sérénité", text: "Visite annuelle programmée." },
@@ -188,7 +188,7 @@ const servicesData = {
     title: "Balcons & Loggias",
     subtitle: "Étanchéité Liquide & Finitions Déco",
     description: "Les balcons fissurés sont source d'infiltration en façade. Nous appliquons des Systèmes d'Étanchéité Liquide (SEL) performants, circulables et esthétiques, sans surépaisseur importante.",
-    image: "https://images.unsplash.com/photo-1621251347676-e10eb5375c32?q=80&w=2070",
+    image: "../public/Balcon.jpeg",
     icon: Droplets,
     benefits: [
       { title: "Faible Épaisseur", text: "Pas de problème de seuil de porte." },
@@ -212,34 +212,34 @@ const servicesData = {
     ]
   },
 
-  // 8. Bardage & Façade
-  "bardage-facade": {
-    title: "Bardage & Façade",
-    subtitle: "Isolation par l'Extérieur (ITE) & Habillage",
-    description: "Protégez et embellissez vos murs. Nous posons des bardages métalliques, bois ou composites qui assurent l'étanchéité de la façade tout en permettant une isolation par l'extérieur performante.",
-    image: "https://images.unsplash.com/photo-1520697830682-bbb6e85e2b0b?q=80&w=2070",
-    icon: Layers,
+  // 8. Dalles sur plots retirées
+"dalles-sur-plots-retirees": {
+    title: "Dalles sur plots retirées",
+    subtitle: "Dépose, Inspection & Réfection d'étanchéité",
+    description: "Intervention spécialisée pour le retrait de dalles sur plots afin d'accéder au support d'étanchéité. Idéal pour localiser une fuite, nettoyer les évacuations ou rénover le revêtement sans destruction lourde.",
+    image: "../public/ty.jpeg",
+    icon: Layers, // Gardé Layers pour l'aspect empilement des dalles
     benefits: [
-      { title: "Isolation", text: "Suppression des ponts thermiques." },
-      { title: "Esthétique", text: "Modernisation du bâtiment." },
-      { title: "Protection", text: "Barrière contre la pluie battante." }
+      { title: "Accessibilité", text: "Accès total au complexe d'étanchéité sans démolition." },
+      { title: "Entretien", text: "Nettoyage des zones d'accumulation d'eaux et débris." },
+      { title: "Polyvalence", text: "Remise en place identique après intervention." }
     ],
     process: [
-      { step: "1", text: "Pose de l'ossature et de l'isolant" },
-      { step: "2", text: "Pose du pare-pluie" },
-      { step: "3", text: "Fixation du bardage de finition" }
+      { step: "1", text: "Numérotation et dépose soignée des dalles" },
+      { step: "2", text: "Nettoyage du support et des plots" },
+      { step: "3", text: "Diagnostic ou réparation du support avant repose" }
     ],
     features: [
-      "Bardage métallique double peau",
-      "Bois ou Composite",
-      "Isolation Laine de roche / Verre",
-      "Traitement des contours de fenêtres"
+      "Dalles béton, grès cérame ou pierre naturelle",
+      "Nettoyage haute pression du support",
+      "Réglage de la planéité des plots",
+      "Remplacement des plots défectueux"
     ],
     faqs: [
-      { q: "Quel gain énergétique ?", a: "L'ITE permet de réduire jusqu'à 25% les déperditions thermiques d'un bâtiment." },
-      { q: "Avez-vous la qualification RGE ?", a: "Oui, nos travaux sont éligibles aux aides à la rénovation énergétique (selon législation)." }
+      { q: "Peut-on réutiliser les dalles ?", a: "Oui, la dépose sur plots permet une réutilisation intégrale des matériaux existants." },
+      { q: "Pourquoi retirer les dalles ?", a: "C'est indispensable pour vérifier l'état des évacuations pluviales et l'étanchéité sous-jacente." }
     ]
-  },
+},
 
   // 9. Parking & Cuvelage
   "parking-cuvelage": {

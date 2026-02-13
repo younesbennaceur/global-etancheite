@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShieldCheck, ArrowRight, Droplets, Umbrella, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 // Composant pour le Ruban Animé (Marquee) - CORRIGÉ
 const MarqueeRibbon = () => {
@@ -100,6 +101,7 @@ const Hero = () => {
 
             {/* Boutons d'action */}
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
+              <Link to="/devis">
               <motion.button 
                 whileHover={{ scale: 1.02, boxShadow: "0 20px 25px -5px rgb(14 165 233 / 0.3)" }}
                 whileTap={{ scale: 0.98 }}
@@ -108,6 +110,8 @@ const Hero = () => {
                 Demander un devis
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </motion.button>
+              </Link>
+              
               
               <motion.button 
                 whileHover={{ scale: 1.02, backgroundColor: "#F8FAFC" }}

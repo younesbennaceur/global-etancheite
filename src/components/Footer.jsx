@@ -1,22 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import de Link
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Footer() {
 
-  // Liens de navigation
+  // Liens de navigation (Routes internes)
   const navLinks = [
-    { title: "Accueil", href: "#accueil" },
-    { title: "Services", href: "#services" },
-    { title: "Réalisations", href: "#realisations" },
-    { title: "Contact", href: "#contact" }
+    { title: "Accueil", path: "/" },
+    { title: "Services", path: "/services" },
+    { title: "Réalisations", path: "/realisations" },
+    { title: "Contact", path: "/devis" } // Ou "/devis" selon votre routing
   ];
 
-  // Liens légaux et bas de page
+  // Liens légaux (Routes internes)
   const legalLinks = [
-    { title: "Mentions Légales", href: "#mentions" },
-    { title: "Politique de Confidentialité", href: "#confidentialite" },
-    { title: "Plan du Site", href: "#plan" }
+    { title: "Mentions Légales", path: "/mentions-legales" },
+    { title: "Politique de Confidentialité", path: "/confidentialite" },
+    { title: "Plan du Site", path: "/plan-du-site" }
   ];
 
   return (
@@ -29,11 +30,10 @@ export default function Footer() {
           {/* COLONNE 1 : Logo & Description & Réseaux Sociaux */}
           <div className="md:col-span-1 lg:col-span-5 pr-8">
             
-            {/* Logo avec icône de travailleur */}
-            <div className="flex items-center gap-3 mb-6">
-              {/* Le "Logo" stylisé */}
-             <img src="/logo.svg" alt="" />
-            </div>
+            {/* Logo cliquable retour accueil */}
+            <Link to="/" className="flex items-center gap-3 mb-6 inline-block">
+               <img src="/logo.svg" alt="Logo Global Étanchéité" />
+            </Link>
 
             {/* Description */}
             <p className="text-slate-400 text-sm leading-relaxed mb-8">
@@ -41,15 +41,15 @@ export default function Footer() {
               Intervention rapide, garantie décennale et respect des normes DTU.
             </p>
 
-            {/* Icônes Réseaux Sociaux */}
+            {/* Icônes Réseaux Sociaux (Restent des <a> car liens externes) */}
             <div className="flex space-x-4">
-              <a href="#" aria-label="Lien Facebook" className="w-10 h-10 bg-[#151E2E] border border-slate-700 flex items-center justify-center rounded-sm hover:bg-[#0EA5E9] transition-colors">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Lien Facebook" className="w-10 h-10 bg-[#151E2E] border border-slate-700 flex items-center justify-center rounded-sm hover:bg-[#0EA5E9] transition-colors">
                 <Facebook size={20} className="text-white" />
               </a>
-              <a href="#" aria-label="Lien Instagram" className="w-10 h-10 bg-[#151E2E] border border-slate-700 flex items-center justify-center rounded-sm hover:bg-[#0EA5E9] transition-colors">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Lien Instagram" className="w-10 h-10 bg-[#151E2E] border border-slate-700 flex items-center justify-center rounded-sm hover:bg-[#0EA5E9] transition-colors">
                 <Instagram size={20} className="text-white" />
               </a>
-              <a href="#" aria-label="Lien LinkedIn" className="w-10 h-10 bg-[#151E2E] border border-slate-700 flex items-center justify-center rounded-sm hover:bg-[#0EA5E9] transition-colors">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Lien LinkedIn" className="w-10 h-10 bg-[#151E2E] border border-slate-700 flex items-center justify-center rounded-sm hover:bg-[#0EA5E9] transition-colors">
                 <Linkedin size={20} className="text-white" />
               </a>
             </div>
@@ -63,9 +63,12 @@ export default function Footer() {
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.title}>
-                  <a href={link.href} className="text-slate-400 text-sm hover:text-[#0EA5E9] transition-colors">
+                  <Link 
+                    to={link.path} 
+                    className="text-slate-400 text-sm hover:text-[#0EA5E9] transition-colors"
+                  >
                     {link.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -86,7 +89,7 @@ export default function Footer() {
               </p>
             </div>
 
-            {/* Téléphone */}
+            {/* Téléphone (Reste <a> pour l'action d'appel) */}
             <div className="flex items-center gap-4 mb-4">
               <Phone size={20} className="text-[#0EA5E9] flex-shrink-0" />
               <a href="tel:0123456789" className="text-slate-200 text-lg font-bold hover:text-[#0EA5E9] transition-colors">
@@ -94,7 +97,7 @@ export default function Footer() {
               </a>
             </div>
 
-            {/* Email */}
+            {/* Email (Reste <a> pour l'action d'envoi) */}
             <div className="flex items-center gap-4">
               <Mail size={20} className="text-[#0EA5E9] flex-shrink-0" />
               <a href="mailto:contact@global-etancheite.fr" className="text-slate-200 text-sm hover:text-[#0EA5E9] transition-colors">
@@ -116,13 +119,13 @@ export default function Footer() {
             {/* Liens légaux à droite */}
             <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2">
               {legalLinks.map((link, index) => (
-                <a 
+                <Link 
                   key={index} 
-                  href={link.href} 
+                  to={link.path} 
                   className="text-slate-400 hover:text-[#0EA5E9] transition-colors uppercase text-xs"
                 >
                   {link.title}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
