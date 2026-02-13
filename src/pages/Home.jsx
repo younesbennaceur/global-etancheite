@@ -7,6 +7,7 @@ import ContactUs from '../components/ContactUs'
 import Testimonials from '../components/Avis'
 import FAQ from '../components/Faqs'
 import CTASection from '../components/CTASection'
+import Partners from '../components/Partners'
 
 // Note: J'ai ajouté les IDs correspondants aux liens de ta navbar
 export default function Home() {
@@ -51,6 +52,10 @@ export default function Home() {
         {/* Section Contact */}
         <section id="contact">
             <ContactUs/>
+        </section>
+        {/* Section Partenaires */}
+        <section id="partners">
+            <Partners/>
         </section>
 
     </div>
