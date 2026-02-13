@@ -14,7 +14,7 @@ const servicesData = {
     title: "Toit Terrasse",
     subtitle: "Rénovation & Isolation Thermique",
     description: "Les toits-terrasses sont les zones les plus exposées aux intempéries. Notre expertise en bitume élastomère assure une étanchéité parfaite de votre bâtiment tout en améliorant son isolation thermique, conformément aux normes DTU 43.1.",
-   image: "../public/ToitTerrasse.jpeg",
+   image: "/ToitTerrasse.jpeg",
     icon: Home,
     benefits: [
       { title: "Garantie Décennale", text: "Travaux couverts sur 10 ans." },
@@ -43,7 +43,7 @@ const servicesData = {
     title: "Étanchéité Neuf",
     subtitle: "Protection des Ouvrages & Fondations",
     description: "Pour les constructions neuves, l'étanchéité est cruciale dès le départ. Nous protégeons les fondations, les radiers et les toitures contre l'humidité ascensionnelle et les infiltrations, garantissant la longévité de la structure.",
-    image: "../public/Étanchéité_Neuf.jpeg",
+    image: "/Étanchéité_Neuf.jpeg",
     icon: Layers,
     benefits: [
       { title: "Pérennité", text: "Protection durable du béton." },
@@ -72,7 +72,7 @@ const servicesData = {
     title: "Sols en Résine",
     subtitle: "Systèmes d'Étanchéité Liquide (SEL)",
     description: "Idéal pour les garages, les locaux techniques ou les intérieurs modernes. La résine forme une surface continue, sans joint, facile à nettoyer et extrêmement résistante aux chocs et aux produits chimiques.",
-    image: "../public/Resine.jpeg",
+    image: "/Resine.jpeg",
     icon: Droplets,
     benefits: [
       { title: "Esthétique", text: "Large choix de couleurs et finitions." },
@@ -101,7 +101,7 @@ const servicesData = {
     title: "Toitures Végétalisées",
     subtitle: "Écologie & Isolation Naturelle",
     description: "Transformez votre toit en jardin. Nous installons le complexe d'étanchéité anti-racine spécifique et le système de drainage nécessaire pour accueillir la végétation (sedum ou intensive).",
-    image: "../public/Végétalisées.jpeg",
+    image: "/Végétalisées.jpeg",
     icon: Sprout,
     benefits: [
       { title: "Isolation", text: "Meilleure inertie thermique été/hiver." },
@@ -130,7 +130,7 @@ const servicesData = {
     title: "Recherche de Fuite",
     subtitle: "Diagnostic Expert Non Destructif",
     description: "Une infiltration ne doit pas attendre. Nous utilisons des technologies de pointe (fumigène, gaz traceur, fluorescéine, humidimètre) pour localiser l'origine exacte de la fuite sans casser votre toiture.",
-    image: "../public/ty.jpeg",
+    image: "/ty.jpeg",
     icon: Search,
     benefits: [
       { title: "Intervention 48h", text: "Urgence traitée en priorité." },
@@ -159,7 +159,7 @@ const servicesData = {
     title: "Contrat d'Entretien",
     subtitle: "Maintenance & Prévention",
     description: "La longévité de votre toiture dépend de son entretien. Notre contrat annuel inclut le nettoyage des évacuations, l'enlèvement des mousses et la vérification des relevés pour éviter tout sinistre.",
-    image: "../public/Entretien.jpeg",
+    image: "/Entretien.jpeg",
     icon: ClipboardCheck,
     benefits: [
       { title: "Sérénité", text: "Visite annuelle programmée." },
@@ -188,7 +188,7 @@ const servicesData = {
     title: "Balcons & Loggias",
     subtitle: "Étanchéité Liquide & Finitions Déco",
     description: "Les balcons fissurés sont source d'infiltration en façade. Nous appliquons des Systèmes d'Étanchéité Liquide (SEL) performants, circulables et esthétiques, sans surépaisseur importante.",
-    image: "../public/Balcon.jpeg",
+    image: "/Balcon.jpeg",
     icon: Droplets,
     benefits: [
       { title: "Faible Épaisseur", text: "Pas de problème de seuil de porte." },
@@ -217,7 +217,7 @@ const servicesData = {
     title: "Dalles sur plots retirées",
     subtitle: "Dépose, Inspection & Réfection d'étanchéité",
     description: "Intervention spécialisée pour le retrait de dalles sur plots afin d'accéder au support d'étanchéité. Idéal pour localiser une fuite, nettoyer les évacuations ou rénover le revêtement sans destruction lourde.",
-    image: "../public/ty.jpeg",
+    image: "/ty.jpeg",
     icon: Layers, // Gardé Layers pour l'aspect empilement des dalles
     benefits: [
       { title: "Accessibilité", text: "Accès total au complexe d'étanchéité sans démolition." },
